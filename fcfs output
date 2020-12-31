@@ -1,0 +1,20 @@
+First Come First Serve Scheduling
+enter the no of process
+enter the arrival time for process 1
+enter the burst time for process   1
+enter the arrival time for process 2
+enter the burst time for process   2
+enter the arrival time for process 3
+enter the burst time for process   3
+enter the arrival time for process 4
+enter the burst time for process   4
+
+ processid  ArrivalTime  BurstTime  CompletionTime   TurnaroundTime  WaitingTime
+
+	1	0	   10	           10	          10	          0
+	2	1	   6	           16	          15	          9
+	3	3	   2	           18	          15	          13
+	4	5	   4	           22	          17	          13
+
+ Average Turnaround Time = 14.25 
+ Average Waiting Time    = 8.75
