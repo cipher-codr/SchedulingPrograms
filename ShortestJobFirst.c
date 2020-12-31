@@ -1,30 +1,22 @@
 #include<stdio.h>
 struct process
 {
-int pid,at,bt,ct,tt,wt;
-}p[10],temp;
+int pid,bt,wt,tt;
+} p[10],temp;
 
 int main()
-{
-int i,j,n;
-float avgtt=0,avgwt=0;
-printf("Shortest Job First Scheduling\n\n");
-printf("enter the no of processes:\t");
+{ 
+ int i,j,n;
+float avgwt,avgtt;
+printf("SJF Scheduling\n");
+printf("\nEnter the number of process:\t");
 scanf("%d",&n);
 
 for(i=1;i<=n;i++)
 {
 p[i].pid=i;
-printf("\nenter the arrival time for process %d:\t",i);
-scanf("%d",&p[i].at);
-printf("\nenter the burst time for process %d:\t",i);
+printf("\nEnter the burst time:\t");
 scanf("%d",&p[i].bt);
-}
-
-printf("\n\nInitial listing:\n   processid\tat\tbt\n");
-for(i=1;i<=n;i++)
-{
-printf("\n\t%d\t%d\t%d\n",p[i].pid,p[i].at,p[i].bt);
 }
 
 for(i=1;i<n;i++)
@@ -36,29 +28,28 @@ if(p[i].bt>p[j].bt)
 temp.pid=p[i].pid;
 p[i].pid=p[j].pid;
 p[j].pid=temp.pid;
-temp.bt=p[i].bt;
-p[i].bt=p[j].bt;
+temp.bt=p[i].bt;p[i].bt=p[j].bt;
 p[j].bt=temp.bt;
 }}}
 
 p[1].wt=0;
-for(i=1;i<=n;i++)
+p[1].tt=p[1].bt+p[1].wt;
+for(i=2;i<=n;i++)
 {
-p[i].ct=p[i].bt+p[i-1].ct;
-p[i].tt=p[i].ct-p[i].at;
-p[i].wt=p[i].tt-p[i].bt;
+p[i].wt=p[i-1].bt+p[i-1].wt;
+p[i].tt=p[i].bt+p[i].wt;
 }
 
-printf("\n\nSorted Burst Time:\n  processid\tat\tbt\tct\ttt\twt\n");
-
+printf("\n\nProcess id \tbt \twt \ttt");
 for(i=1;i<=n;i++)
 {
-printf("\n\t%d\t%d\t%d\t%d\t%d\t%d\n",p[i].pid,p[i].at,p[i].bt,p[i].ct,p[i].tt,p[i].wt);
+printf("\n\t%d \t%d \t%d \t%d\n",p[i].pid,p[i].bt,p[i].wt,p[i].tt);
 avgwt=p[i].wt+avgwt;
 avgtt=p[i].tt+avgtt;
 }
-avgtt=avgtt/n;
+
 avgwt=avgwt/n;
-printf("\n\n avgtt = %.2f\t avgwt = %.2f\n",avgtt,avgwt);
+avgtt=avgtt/n;
+printf("\navgwt=%.2f\t avgtt=%.2f",avgwt,avgtt);
 return 0;
 }
