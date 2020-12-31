@@ -1,0 +1,21 @@
+SJF Scheduling
+
+Enter the number of process:	
+Enter the burst time:	
+Enter the burst time:	
+Enter the burst time:	
+Enter the burst time:	
+Enter the burst time:	
+
+Process id 	bt 	wt 	tt
+	1 	1 	0 	1
+
+	3 	2 	1 	3
+
+	5 	3 	3 	6
+
+	2 	4 	6 	10
+
+	4 	6 	10 	16
+
+avgwt=4.00	 avgtt=7.20
